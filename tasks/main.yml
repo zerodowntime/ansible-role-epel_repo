@@ -1,0 +1,13 @@
+---
+# zerodowntime.epel-repo/meta/main.yml
+
+- name: epel_repo | install EPEL repo
+  become: true
+  yum:
+    name: epel-release
+    state: present
+  when:
+    - ansible_os_family == "RedHat"
+  tags:
+    - epel-repo
+    - epel-repo::install
